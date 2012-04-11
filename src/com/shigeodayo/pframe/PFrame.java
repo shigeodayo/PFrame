@@ -25,8 +25,8 @@ public class PFrame extends JFrame {
 		add(target);
 		target.init();
 		Insets insets = getInsets();
-		setSize(target.width, target.height + insets.top);
-		setBounds(x, y, target.width, target.height + insets.top);
+		setBounds(x, y, target.width + insets.right + insets.left, target.height + insets.top + insets.bottom);
+		setSize(target.width + insets.right + insets.left, target.height + insets.top + insets.bottom);
 	}
 
 	/**
@@ -48,6 +48,7 @@ public class PFrame extends JFrame {
 		add(target);
 		target.init();
 		Insets insets = getInsets();
-		setBounds(x, y, width, height + insets.top);
+		//setBounds(x, y, width, height + insets.top);
+		setBounds(x, y, width + insets.right + insets.left, height + insets.top + insets.bottom);
 	}
 }
