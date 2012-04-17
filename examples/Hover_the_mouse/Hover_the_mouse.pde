@@ -76,6 +76,22 @@ void draw() {
           frames[y][x].setLocation(newX[index], newY[index]);
         }
       }
+      delay(200);
+      for (int y = 0; y < frames.length; y++) {
+        for (int x = 0; x < frames[0].length; x++) {
+          final int x_ = x;
+          final int y_ = y;
+          new Thread() {
+            public void run() {
+              int posX = (int) random(0, screen.width);
+              int posY = (int) random(0, screen.height);
+              frames[y_][x_].setLocation(posX, posY);      
+            }
+          }.start();
+        }
+      }
+      delay(2000);   
+      exit();
     }
   }
 }
