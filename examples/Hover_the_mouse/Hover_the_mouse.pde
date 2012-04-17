@@ -66,6 +66,8 @@ void draw() {
   background(0, 0, 0);
   if (mouseOveredCount == frames.length * frames[0].length) {
     text("Who is she?", 20, 40);
+    text("She is ...", 60, 80);
+    text("(mouse over me)", 60, 100);
     if (mouseX > 0 && mouseY > 0) {
       for (int y = 0; y < frames.length; y++) {
         for (int x = 0; x < frames[0].length; x++) {
