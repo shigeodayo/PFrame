@@ -1,4 +1,3 @@
-/** This application only runs on Mac OSX */
 import com.shigeodayo.pframe.*;
 
 PFrame[][] frames;
