@@ -18,3 +18,6 @@ You can easily create new window in Processing code.
 ###Installation
 Add downloaded "PFrame" file to your Processing libraries folder.
 
+
+###Reference
+http://forum.processing.org/topic/multiple-windows
