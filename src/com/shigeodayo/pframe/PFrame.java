@@ -64,8 +64,8 @@ public class PFrame extends JFrame {
 		return target;
 	}
 
-	private void initialize(final PApplet target, final int x, final int y,
-			final boolean showTitleBar) {
+	private void initialize(PApplet target, int x, int y,
+			boolean showTitleBar) {
 		this.target = target;
 		if (!showTitleBar) {
 			removeNotify();
@@ -79,10 +79,6 @@ public class PFrame extends JFrame {
 		setVisible(true);
 		Insets insets = getInsets();
 		setLocation(x, y);
-		if (target.width != 20)
-			System.out.println("width: " + target.width);
-		if (target.height != 20)
-			System.out.println("height: " + target.height);
 		setSize(target.width + insets.right + insets.left, target.height
 				+ insets.top + insets.bottom);
 		target.resize(target.width + insets.right + insets.left, target.height
