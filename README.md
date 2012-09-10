@@ -1,22 +1,35 @@
-##PFrame 
-version 1.0.0
+##PFrame
 
-**Copyright (c) 2012 Shigeo Yoshida.**
 
-http://www.shigeodayo.com
+---
 
-###PFrame
-You can easily create new window in Processing code.
+**Copyright \(c\) 2012 Shigeo Yoshida\.**
 
+http://www\.shigeodayo\.com
+
+You can easily create new window in Processing code\.
+
+And you can create transparent window\.
 
 ###Working Environment
-* Mac OSX
-* Windows
 
+
+---
+
+- Mac OSX
+- Windows
 
 ###Installation
-Add downloaded "PFrame" file to your Processing libraries folder.
 
+
+---
+
+Add downloaded "PFrame" files to your Processing libraries folder\.
 
 ###Reference
-http://forum.processing.org/topic/multiple-windows
+
+
+---
+
+http://forum\.processing\.org/topic/multiple\-windows
+
