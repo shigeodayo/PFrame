@@ -38,14 +38,17 @@ public class PFrameExample extends PApplet {
 		secondFrame.setTitle("Second Frame");
 
 		thirdApplet = new ThirdApplet();
-		thirdFrame = new PFrame(thirdApplet, 420, 0);
+		thirdFrame = new PFrame(thirdApplet, 420, 0, false);
 		thirdFrame.setTitle("Third Frame");
 		noCursor();
 	}
 
 	public void draw() {
-
 	}
+
+	public void mouseClicked() {
+	}
+
 }
 
 class SecondApplet extends PApplet {

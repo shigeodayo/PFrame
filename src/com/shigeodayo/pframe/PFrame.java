@@ -17,6 +17,7 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package com.shigeodayo.pframe;
 
+import java.awt.Container;
 import java.awt.Insets;
 
 import javax.swing.JFrame;
@@ -28,6 +29,8 @@ public class PFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	private PApplet target = null;
+
+	private boolean showTitleBar = true;
 
 	/**
 	 * constructor
@@ -64,18 +67,28 @@ public class PFrame extends JFrame {
 		return target;
 	}
 
-	private void initialize(PApplet target, int x, int y,
-			boolean showTitleBar) {
-		this.target = target;
-		if (!showTitleBar) {
-			removeNotify();
-			setUndecorated(true);
-			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			setUndecorated(true);
-			addNotify();
+	public void setTransparent(boolean transparent, float alpha) {
+		if (showTitleBar) {
+			System.err.println("Can't transparentize this frame.\n"
+					+ "Hide title bar when you call constructor.");
+			return;
 		}
-		add(target);
+		com.sun.awt.AWTUtilities.setWindowOpaque(this, !transparent);
+		if (transparent) {
+			com.sun.awt.AWTUtilities.setWindowOpacity(this, alpha);
+		}
+	}
+
+	private void initialize(PApplet target, int x, int y, boolean showTitleBar) {
+		this.target = target;
+
+		showTitleBar(showTitleBar);
+
+		Container contentPane = this.getContentPane();
+		contentPane.add(target);
+
 		target.init();
+
 		setVisible(true);
 		Insets insets = getInsets();
 		setLocation(x, y);
@@ -83,5 +96,17 @@ public class PFrame extends JFrame {
 				+ insets.top + insets.bottom);
 		target.resize(target.width + insets.right + insets.left, target.height
 				+ insets.top + insets.bottom);
+
+	}
+
+	private void showTitleBar(boolean show) {
+		this.showTitleBar = show;
+		if (!show) {
+			removeNotify();
+			setUndecorated(!show);
+			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			setUndecorated(!show);
+			addNotify();
+		}
 	}
 }
